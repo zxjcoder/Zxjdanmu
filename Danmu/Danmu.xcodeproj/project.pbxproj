@@ -15,6 +15,8 @@
 		103F29281D4D9DDE00D0170E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103F29261D4D9DDE00D0170E /* LaunchScreen.storyboard */; };
 		103F29331D4D9DDE00D0170E /* DanmuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 103F29321D4D9DDE00D0170E /* DanmuTests.m */; };
 		103F293E1D4D9DDE00D0170E /* DanmuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 103F293D1D4D9DDE00D0170E /* DanmuUITests.m */; };
+		103F29541D4DE95000D0170E /* DanmuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 103F29531D4DE95000D0170E /* DanmuView.m */; };
+		103F29571D4DE96100D0170E /* DanmuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 103F29561D4DE96100D0170E /* DanmuManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		103F29391D4D9DDE00D0170E /* DanmuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DanmuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		103F293D1D4D9DDE00D0170E /* DanmuUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanmuUITests.m; sourceTree = "<group>"; };
 		103F293F1D4D9DDE00D0170E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		103F29521D4DE95000D0170E /* DanmuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmuView.h; sourceTree = "<group>"; };
+		103F29531D4DE95000D0170E /* DanmuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmuView.m; sourceTree = "<group>"; };
+		103F29551D4DE96100D0170E /* DanmuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmuManager.h; sourceTree = "<group>"; };
+		103F29561D4DE96100D0170E /* DanmuManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmuManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				103F291C1D4D9DDE00D0170E /* AppDelegate.m */,
 				103F291E1D4D9DDE00D0170E /* ViewController.h */,
 				103F291F1D4D9DDE00D0170E /* ViewController.m */,
+				103F29521D4DE95000D0170E /* DanmuView.h */,
+				103F29531D4DE95000D0170E /* DanmuView.m */,
+				103F29551D4DE96100D0170E /* DanmuManager.h */,
+				103F29561D4DE96100D0170E /* DanmuManager.m */,
 				103F29211D4D9DDE00D0170E /* Main.storyboard */,
 				103F29241D4D9DDE00D0170E /* Assets.xcassets */,
 				103F29261D4D9DDE00D0170E /* LaunchScreen.storyboard */,
@@ -272,6 +282,8 @@
 			files = (
 				103F29201D4D9DDE00D0170E /* ViewController.m in Sources */,
 				103F291D1D4D9DDE00D0170E /* AppDelegate.m in Sources */,
+				103F29541D4DE95000D0170E /* DanmuView.m in Sources */,
+				103F29571D4DE96100D0170E /* DanmuManager.m in Sources */,
 				103F291A1D4D9DDE00D0170E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
