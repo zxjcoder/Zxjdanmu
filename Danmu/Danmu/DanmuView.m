@@ -10,7 +10,7 @@
 #define Padding 10
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define duration 4
+#define duration 4.0
 @interface DanmuView ()
 
 @property (nonatomic,strong)UILabel  *commentLabel;
@@ -54,7 +54,7 @@
 
     //v = s/t
     CGFloat speed = totalWidth/duration;
-    CGFloat enterDuration = CGRectGetWidth(self.bounds)/speed;
+    CGFloat enterDuration = self.bounds.size.width/speed;
 
     [self performSelector:@selector(EnterScreen) withObject:nil afterDelay:enterDuration];
 

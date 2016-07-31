@@ -29,7 +29,7 @@
         return nil;
     }
     NSString *comment = [self.DanmuComments firstObject];
-    if (!comment) {
+    if (comment) {
         [self.DanmuComments removeObject:comment];
     }
    return comment;
@@ -41,7 +41,13 @@
         _dataSource = [NSMutableArray arrayWithArray:@[
                                                        @"弹幕1~~~~~~~~~",
                                                        @"弹幕1~~~~~弹幕2~~~~",
-                                                       @"弹幕1~~~~~弹幕2~~~~弹幕3"]];
+                                                       @"弹幕1~~~~~弹幕2~~~~弹幕3",
+                                                       @"弹幕6~~~~~~~~~",
+                                                       @"弹幕1~~~~~弹幕4~~~~",
+                                                       @"弹幕1~~~~~弹幕5~~~~弹幕3",
+                                                       @"弹幕1~~~~~~~~~",
+                                                       @"弹幕1~~~~~弹幕7~~~~",
+                                                       @"弹幕1~~~~~弹幕8~~~~弹幕3"]];
     }
     return _dataSource;
 }
@@ -120,9 +126,9 @@
             {
 
                 //弹幕完全进入屏幕,判断是否有其他内容,如果有,则在该弹幕轨迹中创建一个弹幕
-                NSString *comment = [weakSelf nextComment];
-                if (comment) {
-                    [weakSelf createDanmuViewWithComment:comment trajectory:trajectory];
+                NSString *comment2 = [weakSelf nextComment];
+                if (comment2) {
+                    [weakSelf createDanmuViewWithComment:comment2 trajectory:trajectory];
                 }
 
                 break;
@@ -146,9 +152,9 @@
             default:
                 break;
         }
-        //已出屏幕后销毁弹幕
-        [weakView stopAnimation];
-        [weakSelf.DanmuViews removeObject:weakView];
+//        //已出屏幕后销毁弹幕
+//        [weakView stopAnimation];
+//        [weakSelf.DanmuViews removeObject:weakView];
     };
     if ([self.delegate respondsToSelector:@selector(DanmuViewInitFinish:)]) {
         [self.delegate DanmuViewInitFinish:view];
