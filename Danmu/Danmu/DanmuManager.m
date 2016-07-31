@@ -104,6 +104,8 @@
 
     __weak typeof(view) weakView = view;
     __weak typeof(self) weakSelf = self;
+
+    //开始动画后,此处给回调
     view.moveStatusBlock = ^(MoveStatus status){
         switch (status) {
             case Start:
