@@ -48,9 +48,12 @@
 
 
     //弹幕开始
-    if (self.moveStatusBlock) {
-        self.moveStatusBlock(Start);
+    if ([self.delegate respondsToSelector:@selector(DanmuViewStatus: danmuView:)]) {
+        [self.delegate DanmuViewStatus:Start danmuView:self];
     }
+//    if (self.moveStatusBlock) {
+//        self.moveStatusBlock(Start);
+//    }
 
     //v = s/t
     CGFloat speed = totalWidth/duration;
@@ -58,7 +61,6 @@
 
     [self performSelector:@selector(EnterScreen) withObject:nil afterDelay:enterDuration];
 
-//    [NSObject cancelPreviousPerformRequestsWithTarget:self];
     /*
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(enterDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (self.moveStatusBlock) {
@@ -72,9 +74,12 @@
         self.frame = frame;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-        if (self.moveStatusBlock) {
-            self.moveStatusBlock(End);
+        if ([self.delegate respondsToSelector:@selector(DanmuViewStatus: danmuView:)]) {
+            [self.delegate DanmuViewStatus:End danmuView:self];
         }
+//        if (self.moveStatusBlock) {
+//            self.moveStatusBlock(End);
+//        }
     }];
 }
 
@@ -100,8 +105,11 @@
 
 - (void)EnterScreen
 {
-    if (self.moveStatusBlock) {
-        self.moveStatusBlock(Enter);
+    if ([self.delegate respondsToSelector:@selector(DanmuViewStatus: danmuView:)]) {
+        [self.delegate DanmuViewStatus:Enter danmuView:self];
     }
+//    if (self.moveStatusBlock) {
+//        self.moveStatusBlock(Enter);
+//    }
 }
 @end

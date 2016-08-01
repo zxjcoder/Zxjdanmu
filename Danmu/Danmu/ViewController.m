@@ -26,15 +26,16 @@
     [super viewDidLoad];
     self.manager = [[DanmuManager alloc] init];
 
+    /*
     //block方法
     __weak typeof(self) weakSelf = self;
     self.manager.generateBlock = ^(DanmuView *view){
 
         [weakSelf addDanmuView:view];
     };
-
+     */
     //代理方法
-//    self.manager.delegate = self;
+    self.manager.delegate = self;
 }
 
 //执行添加弹幕事件

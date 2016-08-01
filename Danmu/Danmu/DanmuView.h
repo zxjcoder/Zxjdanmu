@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class DanmuView;
 typedef NS_ENUM(NSInteger,MoveStatus) {
     Start,
     Enter,
     End
 };
+
+//代理弹幕状态回调
+@protocol DanmuViewDelegate <NSObject>
+
+@optional
+- (void)DanmuViewStatus:(MoveStatus)status danmuView:(DanmuView *)view;
+
+@end
 @interface DanmuView : UIView
 
 //弹道
@@ -22,7 +30,7 @@ typedef NS_ENUM(NSInteger,MoveStatus) {
 //弹幕状态回掉
 @property (nonatomic,copy) void(^moveStatusBlock)(MoveStatus status);
 
-
+@property (nonatomic,weak)id<DanmuViewDelegate> delegate;
 //初始化弹幕
 - (instancetype)initWithComment:(NSString *)comment;
 
