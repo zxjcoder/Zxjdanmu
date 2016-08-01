@@ -9,6 +9,7 @@
 #import "DanmuManager.h"
 #import "DanmuView.h"
 
+#define paddingTime 0.1
 @interface DanmuManager ()
 
 //弹幕数据源
@@ -40,6 +41,7 @@
 //        _dataSource = [NSMutableArray arrayWithCapacity:0];
         _dataSource = [NSMutableArray arrayWithArray:@[
                                                        @"弹幕1~~~~~~~~~",
+                                                       @"弹幕1~~~~~弹幕21~~~~弹幕3",
                                                        @"弹幕1~~~~~弹幕2~~~~",
                                                        @"弹幕1~~~~~弹幕2~~~~弹幕3",
                                                        @"弹幕6~~~~~~~~~",
@@ -124,12 +126,19 @@
             }
             case Enter:
             {
-
-                //弹幕完全进入屏幕,判断是否有其他内容,如果有,则在该弹幕轨迹中创建一个弹幕
-                NSString *comment2 = [weakSelf nextComment];
-                if (comment2) {
-                    [weakSelf createDanmuViewWithComment:comment2 trajectory:trajectory];
-                }
+                //为了不让弹幕跟太紧
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(paddingTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    //弹幕完全进入屏幕,判断后边是否有其他内容,如果有,则在该弹幕轨迹中创建一个弹幕
+                    NSString *comment2 = [weakSelf nextComment];
+                    if (comment2) {
+                        [weakSelf createDanmuViewWithComment:comment2 trajectory:trajectory];
+                    }
+                });
+//                //弹幕完全进入屏幕,判断后边是否有其他内容,如果有,则在该弹幕轨迹中创建一个弹幕
+//                NSString *comment2 = [weakSelf nextComment];
+//                if (comment2) {
+//                    [weakSelf createDanmuViewWithComment:comment2 trajectory:trajectory];
+//                }
 
                 break;
 
