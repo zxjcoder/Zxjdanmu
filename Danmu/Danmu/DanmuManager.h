@@ -11,9 +11,13 @@
 @class DanmuView;
 @protocol DanmuManagerDelegate <NSObject>
 
+@required
 //创建弹幕完成回调(delegate)
 - (void)DanmuViewInitFinish:(DanmuView *)view;
 
+@optional
+//弹幕被点击时回调
+//- (void)ManagerDanmuViewDidSelected:(DanmuView *)view Comment:(NSString *)comment;
 @end
 @interface DanmuManager : NSObject
 
@@ -21,6 +25,13 @@
 @property (nonatomic,copy) void (^generateBlock)( DanmuView *view);
 
 @property (nonatomic,weak)id<DanmuManagerDelegate>  delegate;
+
+//弹幕数据源
+@property (nonatomic,strong)NSMutableArray *dataSource;
+//弹幕使用时的数组变量
+@property (nonatomic,strong)NSMutableArray *DanmuComments;
+//存储弹幕View的数组
+@property (nonatomic,strong)NSMutableArray *DanmuViews;
 //弹幕开始
 - (void)start;
 

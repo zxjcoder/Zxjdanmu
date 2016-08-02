@@ -19,8 +19,11 @@ typedef NS_ENUM(NSInteger,MoveStatus) {
 @protocol DanmuViewDelegate <NSObject>
 
 @optional
+//返回弹幕状态
 - (void)DanmuViewStatus:(MoveStatus)status danmuView:(DanmuView *)view;
 
+//弹幕被点击后回调
+//- (void)DanmuViewDidSelected:(DanmuView *)view Comment:(NSString *)comment;
 @end
 @interface DanmuView : UIView
 
@@ -31,6 +34,8 @@ typedef NS_ENUM(NSInteger,MoveStatus) {
 @property (nonatomic,copy) void(^moveStatusBlock)(MoveStatus status);
 
 @property (nonatomic,weak)id<DanmuViewDelegate> delegate;
+//弹幕显示的label
+@property (nonatomic,strong)UILabel  *commentLabel;
 //初始化弹幕
 - (instancetype)initWithComment:(NSString *)comment;
 

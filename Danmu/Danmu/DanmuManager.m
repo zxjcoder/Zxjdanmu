@@ -12,13 +12,13 @@
 #define paddingTime 0.1
 @interface DanmuManager ()<DanmuViewDelegate>
 
-//弹幕数据源
-@property (nonatomic,strong)NSMutableArray *dataSource;
+////弹幕数据源
+//@property (nonatomic,strong)NSMutableArray *dataSource;
 //弹幕使用时的数组变量
-@property (nonatomic,strong)NSMutableArray *DanmuComments;
+//@property (nonatomic,strong)NSMutableArray *DanmuComments;
 
 //存储弹幕View的数组
-@property (nonatomic,strong)NSMutableArray *DanmuViews;
+//@property (nonatomic,strong)NSMutableArray *DanmuViews;
 
 @end
 @implementation DanmuManager
@@ -45,17 +45,7 @@
 {
     if (!_dataSource) {
 //        _dataSource = [NSMutableArray arrayWithCapacity:0];
-        _dataSource = [NSMutableArray arrayWithArray:@[
-                                                       @"弹幕1~~~~~~~~~",
-                                                       @"弹幕1~~~~~弹幕21~~~~弹幕3",
-                                                       @"弹幕1~~~~~弹幕2~~~~",
-                                                       @"弹幕1~~~~~弹幕2~~~~弹幕3",
-                                                       @"弹幕6~~~~~~~~~",
-                                                       @"弹幕1~~~~~弹幕4~~~~",
-                                                       @"弹幕1~~~~~弹幕5~~~~弹幕3",
-                                                       @"弹幕1~~~~~~~~~",
-                                                       @"弹幕1~~~~~弹幕7~~~~",
-                                                       @"弹幕1~~~~~弹幕8~~~~弹幕3"]];
+        _dataSource = [NSMutableArray arrayWithCapacity:0];
     }
     return _dataSource;
 }
@@ -231,4 +221,12 @@
     }
 
 }
+/* 动画时,Tap不会响应
+- (void)DanmuViewDidSelected:(DanmuView *)view Comment:(NSString *)comment
+{
+    if ([self.delegate respondsToSelector:@selector(ManagerDanmuViewDidSelected:Comment:)]) {
+        [self.delegate ManagerDanmuViewDidSelected:view Comment:comment];
+    }
+}
+ */
 @end
